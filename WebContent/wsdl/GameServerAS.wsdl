@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://server.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://server.com" xmlns:intf="http://server.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://server.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="createPlayerAccount">
+    <complexType>
+     <sequence>
+      <element name="firstName" type="xsd:string"/>
+      <element name="lastName" type="xsd:string"/>
+      <element name="age" type="xsd:int"/>
+      <element name="userName" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="ipAdd" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createPlayerAccountResponse">
+    <complexType>
+     <sequence>
+      <element name="createPlayerAccountReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="calculateStatus">
+    <complexType/>
+   </element>
+   <element name="calculateStatusResponse">
+    <complexType>
+     <sequence>
+      <element name="calculateStatusReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPlayerStatus">
+    <complexType>
+     <sequence>
+      <element name="adminunm" type="xsd:string"/>
+      <element name="adminpwd" type="xsd:string"/>
+      <element name="ipAdd" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPlayerStatusResponse">
+    <complexType>
+     <sequence>
+      <element name="getPlayerStatusReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="suspendAccount">
+    <complexType>
+     <sequence>
+      <element name="adminUnm" type="xsd:string"/>
+      <element name="adminPwd" type="xsd:string"/>
+      <element name="ipAdd" type="xsd:string"/>
+      <element name="username" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="suspendAccountResponse">
+    <complexType>
+     <sequence>
+      <element name="suspendAccountReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="transferAccount">
+    <complexType>
+     <sequence>
+      <element name="userName" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="oldipApp" type="xsd:string"/>
+      <element name="newipAdd" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="transferAccountResponse">
+    <complexType>
+     <sequence>
+      <element name="transferAccountReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="processSignOut">
+    <complexType>
+     <sequence>
+      <element name="userName" type="xsd:string"/>
+      <element name="ipAdd" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="processSignOutResponse">
+    <complexType>
+     <sequence>
+      <element name="processSignOutReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="processSignIn">
+    <complexType>
+     <sequence>
+      <element name="userName" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="ipAdd" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="processSignInResponse">
+    <complexType>
+     <sequence>
+      <element name="processSignInReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="suspendAccountRequest">
+
+      <wsdl:part element="impl:suspendAccount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="calculateStatusRequest">
+
+      <wsdl:part element="impl:calculateStatus" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPlayerStatusResponse">
+
+      <wsdl:part element="impl:getPlayerStatusResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="transferAccountResponse">
+
+      <wsdl:part element="impl:transferAccountResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="calculateStatusResponse">
+
+      <wsdl:part element="impl:calculateStatusResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="transferAccountRequest">
+
+      <wsdl:part element="impl:transferAccount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="processSignOutRequest">
+
+      <wsdl:part element="impl:processSignOut" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="processSignOutResponse">
+
+      <wsdl:part element="impl:processSignOutResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="processSignInRequest">
+
+      <wsdl:part element="impl:processSignIn" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPlayerStatusRequest">
+
+      <wsdl:part element="impl:getPlayerStatus" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="suspendAccountResponse">
+
+      <wsdl:part element="impl:suspendAccountResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="processSignInResponse">
+
+      <wsdl:part element="impl:processSignInResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createPlayerAccountRequest">
+
+      <wsdl:part element="impl:createPlayerAccount" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createPlayerAccountResponse">
+
+      <wsdl:part element="impl:createPlayerAccountResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="GameServerAS">
+
+      <wsdl:operation name="createPlayerAccount">
+
+         <wsdl:input message="impl:createPlayerAccountRequest" name="createPlayerAccountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createPlayerAccountResponse" name="createPlayerAccountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="calculateStatus">
+
+         <wsdl:input message="impl:calculateStatusRequest" name="calculateStatusRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:calculateStatusResponse" name="calculateStatusResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPlayerStatus">
+
+         <wsdl:input message="impl:getPlayerStatusRequest" name="getPlayerStatusRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPlayerStatusResponse" name="getPlayerStatusResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="suspendAccount">
+
+         <wsdl:input message="impl:suspendAccountRequest" name="suspendAccountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:suspendAccountResponse" name="suspendAccountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="transferAccount">
+
+         <wsdl:input message="impl:transferAccountRequest" name="transferAccountRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:transferAccountResponse" name="transferAccountResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="processSignOut">
+
+         <wsdl:input message="impl:processSignOutRequest" name="processSignOutRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:processSignOutResponse" name="processSignOutResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="processSignIn">
+
+         <wsdl:input message="impl:processSignInRequest" name="processSignInRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:processSignInResponse" name="processSignInResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="GameServerASSoapBinding" type="impl:GameServerAS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="createPlayerAccount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createPlayerAccountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createPlayerAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="calculateStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="calculateStatusRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="calculateStatusResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPlayerStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPlayerStatusRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPlayerStatusResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="suspendAccount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="suspendAccountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="suspendAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="transferAccount">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="transferAccountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="transferAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="processSignOut">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="processSignOutRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="processSignOutResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="processSignIn">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="processSignInRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="processSignInResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="GameServerASService">
+
+      <wsdl:port binding="impl:GameServerASSoapBinding" name="GameServerAS">
+
+         <wsdlsoap:address location="http://localhost:8080/AssingmentThree/services/GameServerAS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

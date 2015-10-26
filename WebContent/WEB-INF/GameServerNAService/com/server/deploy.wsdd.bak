@@ -1,0 +1,62 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from GameServerNAService WSDL service -->
+
+  <service name="GameServerNA" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://server.com"/>
+      <parameter name="wsdlServiceElement" value="GameServerNAService"/>
+      <parameter name="schemaQualified" value="http://server.com"/>
+      <parameter name="wsdlServicePort" value="GameServerNA"/>
+      <parameter name="className" value="com.server.GameServerNASoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="GameServerNA"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="createPlayerAccount" qname="operNS:createPlayerAccount" xmlns:operNS="http://server.com" returnQName="retNS:createPlayerAccountReturn" xmlns:retNS="http://server.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:firstName" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:lastName" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:age" xmlns:pns="http://server.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:userName" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:password" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ipAdd" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="calculateStatus" qname="operNS:calculateStatus" xmlns:operNS="http://server.com" returnQName="retNS:calculateStatusReturn" xmlns:retNS="http://server.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="getPlayerStatus" qname="operNS:getPlayerStatus" xmlns:operNS="http://server.com" returnQName="retNS:getPlayerStatusReturn" xmlns:retNS="http://server.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:adminunm" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:adminpwd" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ipAdd" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="suspendAccount" qname="operNS:suspendAccount" xmlns:operNS="http://server.com" returnQName="retNS:suspendAccountReturn" xmlns:retNS="http://server.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:adminUnm" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:adminPwd" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ipAdd" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:username" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="transferAccount" qname="operNS:transferAccount" xmlns:operNS="http://server.com" returnQName="retNS:transferAccountReturn" xmlns:retNS="http://server.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:userName" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:password" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:oldipApp" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:newipAdd" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="processSignOut" qname="operNS:processSignOut" xmlns:operNS="http://server.com" returnQName="retNS:processSignOutReturn" xmlns:retNS="http://server.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:userName" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ipAdd" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="processSignIn" qname="operNS:processSignIn" xmlns:operNS="http://server.com" returnQName="retNS:processSignInReturn" xmlns:retNS="http://server.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:userName" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:password" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ipAdd" xmlns:pns="http://server.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="transferAccount processSignOut getPlayerStatus processSignIn calculateStatus suspendAccount createPlayerAccount"/>
+
+  </service>
+</deployment>
